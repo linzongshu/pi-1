@@ -68,6 +68,7 @@ class Block
         return array(
             'items'     => $allItems,
             'target'    => $options['target'],
+            'module'    => $module,
         );
     }
     
@@ -130,6 +131,7 @@ class Block
             'items'    => $categories,
             'options'  => $options,
             'category' => $params['category'],
+            'module'   => $module,
         );
     }
     
@@ -191,6 +193,7 @@ class Block
         return array(
             'categories' => $categories,
             'target'     => $options['target'],
+            'module'     => $module,
         );
     }
     
@@ -281,6 +284,7 @@ class Block
             'config'    => $config,
             'column'    => $options['column-number'],
             'rows'      => $options['description_rows'],
+            'module'    => $module,
         );
     }
     
@@ -341,6 +345,7 @@ class Block
             'column'    => $options['column-number'],
             'config'    => $config,
             'rows'      => $options['description_rows'],
+            'module'    => $module,
         );
     }
     
@@ -398,6 +403,7 @@ class Block
             'week'    => $weekSets,
             'month'   => $monthSets,
             'history' => $historySets,
+            'module'  => $module,
         );
     }
     
@@ -443,6 +449,7 @@ class Block
             'items'     => $topics,
             'target'    => $options['target'],
             'config'    => $config,
+            'module'    => $module,
         );
     }
 
@@ -508,6 +515,7 @@ class Block
             'column'    => $options['column-number'],
             'config'    => $config,
             'rows'      => $options['description_rows'],
+            'module'    => $module,
         );
     }
     
@@ -607,12 +615,13 @@ class Block
         return array(
             'articles'  => $articles,
             'target'    => $options['target'],
-            'style'     => $options['block-style'],
             'elements'  => (array) $options['element'],
+            'width'     => $options['image-width'],
             'height'    => $options['image-height'],
             'images'    => $images,
             'config'    => Pi::config('', $module),
             'rows'      => $options['description_rows'],
+            'module'    => $module,
         );
     }
     
