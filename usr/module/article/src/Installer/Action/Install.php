@@ -240,10 +240,17 @@ class Install extends BasicInstall
             $sql = preg_replace('|{upload-url}|', Pi::url('upload/' . $module), $sql);
             $sql = preg_replace('|upload\/article|', 'upload\/' . $module, $sql);
 
-            try {
-                $isInsert = Pi::db()->getAdapter()->query($sql, 'execute');
-            } catch (\Exception $exception) {
-                return false;
+            $sqls = explode('INSERT INTO', $sql);
+            foreach ($sqls as $sql) {
+                if (0 === strpos($sql, '--')) {
+                    continue;
+                }
+                $sql = 'INSERT INTO' . $sql;
+                try {
+                    $isInsert = Pi::db()->getAdapter()->query($sql, 'execute');
+                } catch (\Exception $exception) {
+                    return false;
+                }
             }
             
             // Copy uploaded data
